@@ -11,6 +11,9 @@
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <script>
         tailwind.config = {
@@ -112,6 +115,26 @@
                 display: none;
             }
         }
+
+            .swiper-pagination-bullet-active {
+        background-color: #c77a63 !important;
+    }
+
+
+      /* Chat Widget Styles */
+    #chat-widget {
+        transition: all 0.3s ease-in-out;
+    }
+    .user-message {
+        background-color: #c77a63; /* Brand color */
+        color: white;
+        align-self: flex-end;
+    }
+    .bot-message {
+        background-color: #f1f1f1; /* Light gray */
+        color: #333;
+        align-self: flex-start;
+    }
     </style>
 </head>
 <body class="min-h-screen bg-background text-foreground font-body">
@@ -310,7 +333,7 @@
                         </p>
                         <div class="mt-auto">
                             <button class="btn-primary text-white font-medium px-8 py-3 text-lg rounded-md">
-                                Learn More
+                              Book Package
                             </button>
                         </div>
                     </div>
@@ -434,7 +457,7 @@
                 >
                     <div class="relative h-64 overflow-hidden">
                         <img 
-                            src="https://images.unsplash.com/photo-1578774204375-967082586412?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            src="https://images.unsplash.com/photo-1648383228240-6ed939727ad6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Executive Suite"
                             class="w-full h-full object-cover hover-scale"
                         />
@@ -460,7 +483,7 @@
                             </div>
                         </div>
                         <p class="text-muted-foreground mb-4">
-                            Premium suite with private workspace, concierge service, and exclusive lounge access.
+                            Premium suite with private workspace, concierge service, and exclusive access.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <div class="flex items-center space-x-1 text-sm text-muted-foreground">
@@ -524,7 +547,7 @@
                             </div>
                         </div>
                         <p class="text-muted-foreground mb-4">
-                            The ultimate luxury experience with private butler, rooftop terrace, and helicopter pad access.
+                            The ultimate luxury experience with private butler, rooftop terrace, helicopter access.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <div class="flex items-center space-x-1 text-sm text-muted-foreground">
@@ -557,485 +580,112 @@
 
  
 
-    <section id="amenities" class="py-24 bg-background">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="text-center mb-16"
-                data-aos="fade-up"
-            >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                    World-Class Amenities
-                </h2>
-                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Discover an array of premium facilities designed to enhance your stay with unparalleled comfort and luxury.
-                </p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div
-                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                >
-                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
-                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9 0v6a2 2 0 002 2h8a2 2 0 002-2v-6M7 7V3a2 2 0 012-2h6a2 2 0 012 2v4M7 7h10"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
-                        Infinity Pool
-                    </h3>
-                    <p class="text-muted-foreground">
-                        Rooftop infinity pool with panoramic city views, poolside service, and private cabanas.
-                    </p>
-                </div>
-
-                <div
-                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                >
-                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
-                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
-                        Luxury Spa
-                    </h3>
-                    <p class="text-muted-foreground">
-                        Award-winning spa featuring therapeutic treatments, sauna, and wellness programs.
-                    </p>
-                </div>
-
-                <div
-                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
-                    data-aos="fade-up"
-                    data-aos-delay="600"
-                >
-                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
-                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
-                        Fine Dining
-                    </h3>
-                    <p class="text-muted-foreground">
-                        Michelin-starred restaurant with world-renowned chefs and extensive wine collection.
-                    </p>
-                </div>
-
-                <div
-                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
-                    data-aos="fade-up"
-                    data-aos-delay="800"
-                >
-                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
-                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
-                        Fitness Center
-                    </h3>
-                    <p class="text-muted-foreground">
-                        State-of-the-art gym with personal trainers, yoga classes, and wellness coaching.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- facilities start -->
 
-<section id="facilities" class="py-24 bg-brand-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
-            class="text-center mb-16"
-            data-aos="fade-up"
-        >
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                Our World-Class Facilities
-            </h2>
-            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Indulge in an array of premium facilities designed to cater to your every need for comfort, relaxation, and business.
-            </p>
+    <section id="facilities" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div 
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Our World-Class Facilities
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Indulge in an array of premium facilities designed to cater to your every need for comfort, relaxation, and business.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="100"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">Swimming Pool</h3>
+                </div>
+
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="200"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">Free Wi-Fi</h3>
+                </div>
+
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="300"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">Restaurant</h3>
+                </div>
+
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="400"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">Fitness Center</h3>
+                </div>
+
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="500"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 003.375-3.375h1.5a1.125 1.125 0 011.125 1.125v-1.5a3.375 3.375 0 00-3.375-3.375H5.25m11.25 6v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 003.375-3.375H18.75m-11.25 9.75h1.5a3.375 3.375 0 003.375-3.375V9.375m-1.5 3.375V15" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">24-Hour Security</h3>
+                </div>
+
+                <div 
+                    class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
+                    data-aos="fade-up" 
+                    data-aos-delay="600"
+                >
+                    <div class="bg-brand-100 p-5 rounded-full mb-4">
+                        <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-foreground text-center">Airport Pickup</h3>
+                </div>
+                
+            </div>
         </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="100"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">Swimming Pool</h3>
-            </div>
-
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="200"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">Free Wi-Fi</h3>
-            </div>
-
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="300"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">Restaurant</h3>
-            </div>
-
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="400"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">Fitness Center</h3>
-            </div>
-
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="500"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 003.375-3.375h1.5a1.125 1.125 0 011.125 1.125v-1.5a3.375 3.375 0 00-3.375-3.375H5.25m11.25 6v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 003.375-3.375H18.75m-11.25 9.75h1.5a3.375 3.375 0 003.375-3.375V9.375m-1.5 3.375V15" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">24-Hour Security</h3>
-            </div>
-
-            <div 
-                class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center justify-center" 
-                data-aos="fade-up" 
-                data-aos-delay="600"
-            >
-                <div class="bg-brand-100 p-5 rounded-full mb-4">
-                    <svg class="h-8 w-8 text-brand-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                    </svg>
-                </div>
-                <h3 class="font-semibold text-foreground text-center">Airport Pickup</h3>
-            </div>
-            
-        </div>
-    </div>
-</section>
+    </section>
     <!-- facilities end -->
 
-    <section class="py-24 bg-brand-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="text-center mb-16"
-                data-aos="fade-up"
-            >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                    What Our Guests Say
-                </h2>
-                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Discover why discerning travelers from around the world choose The Grandeur for their most memorable stays.
-                </p>
-            </div>
+    <!-- gallery section start  -->
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-white shadow-lg border-0 relative rounded-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                >
-                    <div class="p-6 pb-4">
-                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                        </svg>
-                        <div class="flex items-center space-x-1 mb-4">
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="text-muted-foreground leading-relaxed">
-                            "Absolutely exceptional service and breathtaking accommodations. The Presidential Suite exceeded all expectations. Every detail was perfect, from the butler service to the rooftop terrace views."
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 p-6 pt-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                            alt="Sarah Johnson"
-                            class="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div>
-                            <p class="font-heading font-semibold text-foreground">Sarah Johnson</p>
-                            <p class="text-sm text-muted-foreground">Business Executive, New York</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white shadow-lg border-0 relative rounded-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                >
-                    <div class="p-6 pb-4">
-                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                        </svg>
-                        <div class="flex items-center space-x-1 mb-4">
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="text-muted-foreground leading-relaxed">
-                            "Our wedding at The Grandeur was a dream come true. The event team was phenomenal, the venue was stunning, and our guests are still talking about the incredible experience."
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 p-6 pt-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                            alt="Michael Chen"
-                            class="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div>
-                            <p class="font-heading font-semibold text-foreground">Michael & Emma Chen</p>
-                            <p class="text-sm text-muted-foreground">Newlyweds, San Francisco</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white shadow-lg border-0 relative rounded-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="600"
-                >
-                    <div class="p-6 pb-4">
-                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                        </svg>
-                        <div class="flex items-center space-x-1 mb-4">
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        </div>
-                        <p class="text-muted-foreground leading-relaxed">
-                            "The spa treatments were divine, the dining was world-class, and the concierge helped us discover hidden gems in the city. This is luxury hospitality at its finest."
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 p-6 pt-0">
-                        <img
-                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                            alt="Isabella Rodriguez"
-                            class="w-12 h-12 rounded-full object-cover"
-                        />
-                        <div>
-                            <p class="font-heading font-semibold text-foreground">Isabella Rodriguez</p>
-                            <p class="text-sm text-muted-foreground">Travel Blogger, Miami</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-background">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="text-center mb-16"
-                data-aos="fade-up"
-            >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                    Awards & Recognition
-                </h2>
-                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Our commitment to excellence has been recognized by the most prestigious organizations in hospitality.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div
-                    class="text-center"
-                    data-aos="zoom-in"
-                    data-aos-delay="200"
-                >
-                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="h-12 w-12 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-foreground mb-2">Forbes Five Star</h3>
-                    <p class="text-sm text-muted-foreground">2020-2024</p>
-                </div>
-
-                <div
-                    class="text-center"
-                    data-aos="zoom-in"
-                    data-aos-delay="400"
-                >
-                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="h-12 w-12 text-brand-600" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-foreground mb-2">AAA Five Diamond</h3>
-                    <p class="text-sm text-muted-foreground">2019-2024</p>
-                </div>
-
-                <div
-                    class="text-center"
-                    data-aos="zoom-in"
-                    data-aos-delay="600"
-                >
-                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="h-12 w-12 text-brand-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-foreground mb-2">World's Best Hotels</h3>
-                    <p class="text-sm text-muted-foreground">Travel + Leisure</p>
-                </div>
-
-                <div
-                    class="text-center"
-                    data-aos="zoom-in"
-                    data-aos-delay="800"
-                >
-                    <div class="bg-green-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                        <svg class="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-foreground mb-2">Green Key Certified</h3>
-                    <p class="text-sm text-muted-foreground">Eco Excellence</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-brand-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-                class="text-center mb-16"
-                data-aos="fade-up"
-            >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-                    Explore the City
-                </h2>
-                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-                    Discover the best attractions, cultural sites, and experiences just minutes from our hotel.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
-                    data-aos="fade-right"
-                    data-aos-delay="200"
-                >
-                    <div class="h-48 overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            alt="Historic District"
-                            class="w-full h-full object-cover hover-scale"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center space-x-2 mb-3">
-                            <svg class="h-5 w-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <span class="bg-brand-100 text-brand-700 px-2 py-1 rounded-full text-sm font-medium">5 min walk</span>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Historic District</h3>
-                        <p class="text-muted-foreground">
-                            Explore centuries of history, charming cobblestone streets, and world-class museums in our vibrant historic quarter.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                >
-                    <div class="h-48 overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            alt="Scenic Waterfront"
-                            class="w-full h-full object-cover hover-scale"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center space-x-2 mb-3">
-                            <svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                            </svg>
-                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm font-medium">10 min drive</span>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Scenic Waterfront</h3>
-                        <p class="text-muted-foreground">
-                            Enjoy stunning waterfront views, luxury shopping, fine dining, and scenic boat tours along the picturesque harbor.
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
-                    data-aos="fade-left"
-                    data-aos-delay="600"
-                >
-                    <div class="h-48 overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            alt="Mountain Views"
-                            class="w-full h-full object-cover hover-scale"
-                        />
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center space-x-2 mb-3">
-                            <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-sm font-medium">15 min drive</span>
-                        </div>
-                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Mountain Trails</h3>
-                        <p class="text-muted-foreground">
-                            Experience breathtaking hiking trails, scenic overlooks, and outdoor adventures in our pristine mountain wilderness.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-background">
+        <section class="py-24 bg-background">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
                 class="text-center mb-16"
@@ -1188,35 +838,264 @@
             </div>
         </div>
     </section>
+    <!-- gallery section end  -->
 
-    <section id="contact" class="py-24 bg-brand-600">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div data-aos="fade-up">
-                <svg class="h-16 w-16 text-white mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-                    Stay in Touch
-                </h2>
-                <p class="text-xl text-brand-100 mb-8 max-w-2xl mx-auto">
-                    Subscribe to receive exclusive offers, special packages, and insider news about The Grandeur's latest experiences.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        class="bg-white/10 border border-white/20 text-white placeholder:text-brand-200 h-12 px-4 rounded-md flex-1"
-                    />
-                    <button class="bg-white text-brand-600 h-12 px-8 font-medium rounded-md transition-colors hover:bg-black hover:text-white">
-                        Subscribe
-                    </button>
+
+ 
+ 
+    <!-- testimonial section start -->
+
+    <section id="testimonials" class="py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div 
+            class="text-center mb-16"
+            data-aos="fade-up"
+        >
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                What Our Guests Say
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Discover why discerning travelers from around the world choose The Grandeur for their most memorable stays.
+            </p>
+        </div>
+
+        <div class="swiper testimonial-slider" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper pb-16">
+
+                <div class="swiper-slide h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
+                        <svg class="h-10 w-10 text-brand-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <p class="text-muted-foreground leading-relaxed italic mb-6 flex-grow">
+                            "Absolutely exceptional service and breathtaking accommodations. The Presidential Suite exceeded all expectations. Every detail was perfect."
+                        </p>
+                        <div class="flex items-center border-t border-brand-100 pt-6">
+                            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Sarah Johnson">
+                            <div class="ml-4">
+                                <h4 class="font-heading font-bold text-foreground">Sarah Johnson</h4>
+                                <p class="text-sm text-muted-foreground">Business Executive, New York</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-sm text-brand-100 mt-4">
-                    We respect your privacy. Unsubscribe at any time.
+
+                <div class="swiper-slide h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
+                        <svg class="h-10 w-10 text-brand-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <p class="text-muted-foreground leading-relaxed italic mb-6 flex-grow">
+                            "Our wedding at The Grandeur was a dream come true. The event team was phenomenal, and our guests are still talking about."
+                        </p>
+                        <div class="flex items-center border-t border-brand-100 pt-6">
+                            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Michael Chen">
+                            <div class="ml-4">
+                                <h4 class="font-heading font-bold text-foreground">Michael & Emma Chen</h4>
+                                <p class="text-sm text-muted-foreground">Newlyweds, San Francisco</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
+                        <svg class="h-10 w-10 text-brand-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <p class="text-muted-foreground leading-relaxed italic mb-6 flex-grow">
+                            "The spa treatments were divine, the dining was world-class. This is luxury hospitality at its finest. Highly recommended!"
+                        </p>
+                        <div class="flex items-center border-t border-brand-100 pt-6">
+                            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Isabella Rodriguez">
+                            <div class="ml-4">
+                                <h4 class="font-heading font-bold text-foreground">Isabella Rodriguez</h4>
+                                <p class="text-sm text-muted-foreground">Travel Blogger, Miami</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="swiper-slide h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full flex flex-col">
+                        <svg class="h-10 w-10 text-brand-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <p class="text-muted-foreground leading-relaxed italic mb-6 flex-grow">
+                            "A perfect stay for my business trip. The room was quiet, the internet was fast, and the staff were incredibly helpful."
+                        </p>
+                        <div class="flex items-center border-t border-brand-100 pt-6">
+                            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="David Lee">
+                            <div class="ml-4">
+                                <h4 class="font-heading font-bold text-foreground">David Lee</h4>
+                                <p class="text-sm text-muted-foreground">Entrepreneur, London</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+    <!-- testimonial section end -->
+
+    <section class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Awards & Recognition
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Our commitment to excellence has been recognized by the most prestigious organizations in hospitality.
                 </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">Forbes Five Star</h3>
+                    <p class="text-sm text-muted-foreground">2020-2024</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">AAA Five Diamond</h3>
+                    <p class="text-sm text-muted-foreground">2019-2024</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="600"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">World's Best Hotels</h3>
+                    <p class="text-sm text-muted-foreground">Travel + Leisure</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="800"
+                >
+                    <div class="bg-green-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">Green Key Certified</h3>
+                    <p class="text-sm text-muted-foreground">Eco Excellence</p>
+                </div>
             </div>
         </div>
     </section>
+
+
+
+    <section id="faq" class="py-24 bg-brand-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div 
+            class="text-center mb-16"
+            data-aos="fade-up"
+        >
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                Frequently Asked Questions
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Have questions? We've got answers. Here are some of the most common questions our guests ask.
+            </p>
+        </div>
+
+        <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+            
+            <div class="faq-item bg-white rounded-lg shadow-lg">
+                <button class="faq-question w-full text-left flex justify-between items-center p-6">
+                    <span class="text-lg font-semibold text-foreground">What are the check-in and check-out times?</span>
+                    <svg class="faq-icon h-6 w-6 text-brand-500 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6">
+                    <p class="text-muted-foreground">
+                        Our standard check-in time is at 3:00 PM, and check-out is at 12:00 PM. Early check-in or late check-out may be available upon request and is subject to availability.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-lg shadow-lg">
+                <button class="faq-question w-full text-left flex justify-between items-center p-6">
+                    <span class="text-lg font-semibold text-foreground">What is your cancellation policy?</span>
+                    <svg class="faq-icon h-6 w-6 text-brand-500 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6">
+                    <p class="text-muted-foreground">
+                        We offer free cancellation up to 48 hours before the check-in date. Cancellations made within 48 hours of arrival will be subject to a charge equivalent to one night's stay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item bg-white rounded-lg shadow-lg">
+                <button class="faq-question w-full text-left flex justify-between items-center p-6">
+                    <span class="text-lg font-semibold text-foreground">Do you allow pets?</span>
+                    <svg class="faq-icon h-6 w-6 text-brand-500 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6">
+                    <p class="text-muted-foreground">
+                        Yes, we are a pet-friendly hotel! We allow small pets (up to 20 lbs) for a nominal fee. Please inform us at the time of booking if you plan to bring a pet.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="faq-item bg-white rounded-lg shadow-lg">
+                <button class="faq-question w-full text-left flex justify-between items-center p-6">
+                    <span class="text-lg font-semibold text-foreground">Is parking available at the hotel?</span>
+                    <svg class="faq-icon h-6 w-6 text-brand-500 transition-transform duration-300 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6">
+                    <p class="text-muted-foreground">
+                        We offer complimentary on-site parking for all our guests. Valet parking services are also available for your convenience at an additional charge.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
 
     <footer class="bg-brand-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1266,6 +1145,34 @@
         </div>
     </footer>
 
+    <div class="fixed bottom-8 right-8 z-50">
+    <div id="chat-widget" class="hidden w-80 md:w-96 h-[32rem] bg-white rounded-2xl shadow-2xl flex flex-col transform transition-all duration-300 origin-bottom-right" data-aos="fade-up">
+        <div class="bg-brand-600 text-white p-4 rounded-t-2xl flex justify-between items-center">
+            <h3 class="font-heading font-bold text-lg">How can we help?</h3>
+            <button id="chat-close-btn" class="text-white hover:text-brand-100">&times;</button>
+        </div>
+
+        <div id="chat-messages" class="flex-grow p-4 space-y-4 overflow-y-auto">
+            <div class="bot-message p-3 rounded-lg max-w-xs">
+                Welcome to The Grandeur! How can I assist you today?
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-brand-100">
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-grow border border-input rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-ring">
+                <button id="chat-send-btn" class="btn-primary text-white p-3 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button id="chat-open-btn" class="bg-brand-500 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+    </button>
+</div>
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -1305,6 +1212,113 @@
                 mobileMenu.classList.remove('active');
             }
         });
+
+
+            // Initialize Swiper for Testimonials
+    const swiper = new Swiper('.testimonial-slider', {
+        // How many slides to show
+        slidesPerView: 1,
+        // Space between slides
+        spaceBetween: 30,
+        // Autoplay settings
+        autoplay: {
+            delay: 5000, // 5 seconds between slides
+            disableOnInteraction: false,
+        },
+        // Loop slides
+        loop: true,
+        // Pagination dots
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is >= 768px (tablets)
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+        }
+    });
+
+
+      // JavaScript for FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+
+        question.addEventListener('click', () => {
+            const isVisible = !answer.classList.contains('hidden');
+            
+            // Close all other answers first
+            faqItems.forEach(otherItem => {
+                otherItem.querySelector('.faq-answer').classList.add('hidden');
+                otherItem.querySelector('.faq-icon').classList.remove('rotate-180');
+            });
+            
+            // Toggle the clicked one
+            if (!isVisible) {
+                answer.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+
+
+       // JavaScript for Live Chat Widget
+    const chatOpenBtn = document.getElementById('chat-open-btn');
+    const chatCloseBtn = document.getElementById('chat-close-btn');
+    const chatWidget = document.getElementById('chat-widget');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatMessages = document.getElementById('chat-messages');
+
+    // Toggle chat widget visibility
+    chatOpenBtn.addEventListener('click', () => {
+        chatWidget.classList.toggle('hidden');
+        chatOpenBtn.classList.toggle('hidden');
+    });
+
+    chatCloseBtn.addEventListener('click', () => {
+        chatWidget.classList.toggle('hidden');
+        chatOpenBtn.classList.toggle('hidden');
+    });
+
+    // Function to add a message to the chat
+    function addMessage(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `${type} p-3 rounded-lg max-w-xs`;
+        messageDiv.textContent = message;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
+    }
+
+    // Function to handle sending a message
+    function sendMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
+
+        addMessage(userMessage, 'user-message');
+        chatInput.value = '';
+
+        // Simulate a bot response after a short delay
+        setTimeout(() => {
+            const botResponse = "Thank you for your message! Our team will get back to you shortly. For immediate assistance, please call us at +1 (555) 123-4567.";
+            addMessage(botResponse, 'bot-message');
+        }, 1500);
+    }
+
+    // Event listeners for sending message
+    chatSendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
     </script>
 </body>
 </html>

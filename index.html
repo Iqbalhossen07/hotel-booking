@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grandeur - Luxury Hotel Experience</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        // New color palette based on #c77a63
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)',
+                            100: 'hsl(14, 40%, 95%)',
+                            200: 'hsl(14, 40%, 90%)',
+                            300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)',
+                            500: '#c77a63',
+                            600: 'hsl(14, 43%, 50%)',
+                            700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)',
+                            900: 'hsl(14, 40%, 20%)',
+                        },
+                        // Semantic colors updated for black text
+                        background: 'hsl(14, 40%, 98%)',
+                        foreground: '#111111', // Black color for main text
+                        card: 'hsl(0, 0%, 100%)',
+                        'card-foreground': '#111111', // Black color
+                        popover: 'hsl(0, 0%, 100%)',
+                        'popover-foreground': '#111111', // Black color
+                        primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)',
+                        secondary: 'hsl(14, 40%, 95%)',
+                        'secondary-foreground': '#111111', // Black color
+                        muted: 'hsl(14, 40%, 90%)',
+                        'muted-foreground': '#333333', // Dark gray for muted text, looks almost black
+                        accent: 'hsl(14, 40%, 90%)',
+                        'accent-foreground': '#111111', // Black color
+                        destructive: 'hsl(0 84.2% 60.2%)',
+                        'destructive-foreground': 'hsl(210 40% 98%)',
+                        border: 'hsl(14, 42%, 80%)',
+                        input: 'hsl(14, 42%, 80%)',
+                        ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Lora', serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+        
+        .hover-scale {
+            transition: transform 0.5s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.1);
+        }
+        
+        .btn-primary {
+            background-color: #c77a63; /* Main Brand Color */
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #111111; /* Changed to Black on hover */
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #111111; /* Changed to black on hover */
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-background text-foreground font-body">
+
+    <nav class="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <svg class="h-8 w-8 text-brand-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                    </svg>
+                    <span class="text-2xl font-heading font-bold text-foreground">The Grandeur</span>
+                </div>
+                
+                <div class="nav-desktop hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-foreground hover:text-brand-500 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-foreground hover:text-brand-500 transition-colors font-medium">About</a>
+                    <a href="#rooms" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
+                    <a href="#amenities" class="text-foreground hover:text-brand-500 transition-colors font-medium">Amenities</a>
+                    <a href="#dining" class="text-foreground hover:text-brand-500 transition-colors font-medium">Dining</a>
+                    <a href="#contact" class="text-foreground hover:text-brand-500 transition-colors font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="btn-primary text-white font-medium px-6 py-2 rounded-md">
+                        Book Now
+                    </button>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden text-foreground">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-border">
+                <div class="space-y-2">
+                    <a href="#home" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Home</a>
+                    <a href="#about" class="block py-2 text-foreground hover:text-brand-500 transition-colors">About</a>
+                    <a href="#rooms" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Rooms</a>
+                    <a href="#amenities" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Amenities</a>
+                    <a href="#dining" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Dining</a>
+                    <a href="#contact" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen overflow-hidden mt-20">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10"></div>
+        <img 
+            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80"
+            alt="Luxury Hotel Exterior"
+            class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 z-20 flex items-center justify-center">
+            <div class="text-center text-white max-w-4xl mx-auto px-4">
+                <h1 
+                    class="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    Experience Luxury
+                    <span class="block text-brand-400">Redefined</span>
+                </h1>
+                <p 
+                    class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    Indulge in unparalleled elegance and comfort at The Grandeur, where every moment becomes a cherished memory.
+                </p>
+                <div 
+                    class="flex flex-col sm:flex-row gap-4 justify-center"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                >
+                    <button class="btn-primary text-white font-medium px-8 py-4 text-lg rounded-md">
+                        Check Availability
+                    </button>
+                    <button class="btn-outline px-8 py-4 text-lg rounded-md">
+                        Virtual Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative -mt-24 z-30 max-w-6xl mx-auto px-4">
+        <div 
+            class="bg-white shadow-2xl border-0 rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="800"
+        >
+            <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Destination</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <input 
+                                type="text"
+                                placeholder="The Grandeur Hotel"
+                                value="The Grandeur Hotel"
+                                class="pl-10 h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Check-in</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <input 
+                                type="date"
+                                value="2024-02-15"
+                                class="pl-10 h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Check-out</label>
+                        <div class="relative">
+                            <svg class="absolute left-3 top-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <input 
+                                type="date"
+                                value="2024-02-18"
+                                class="pl-10 h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+                        <select class="h-12 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary h-12 text-white font-medium rounded-md">
+                        Search Rooms
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div 
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Exquisite Accommodations
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Each room is a sanctuary of comfort and elegance, designed to exceed your expectations with premium amenities and breathtaking views.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div 
+                    class="overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-left"
+                    data-aos-delay="200"
+                >
+                    <div class="relative h-64 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Deluxe Suite"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                        <span class="absolute top-4 left-4 bg-brand-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Most Popular
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-heading font-semibold text-foreground mb-2">Deluxe Suite</h3>
+                                <div class="flex items-center space-x-1 mb-3">
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-brand-600">$450</p>
+                                <p class="text-sm text-muted-foreground">per night</p>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground mb-4">
+                            Spacious suite with separate living area, marble bathroom, and panoramic city views.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                                </svg>
+                                <span>Free WiFi</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                <span>Parking</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                                </svg>
+                                <span>Room Service</span>
+                            </div>
+                        </div>
+                        <button class="w-full btn-primary text-white py-3 rounded-md font-medium">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <div 
+                    class="overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    <div class="relative h-64 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1578774204375-967082586412?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Executive Suite"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                        <span class="absolute top-4 left-4 bg-brand-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Business
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-heading font-semibold text-foreground mb-2">Executive Suite</h3>
+                                <div class="flex items-center space-x-1 mb-3">
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-brand-600">$650</p>
+                                <p class="text-sm text-muted-foreground">per night</p>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground mb-4">
+                            Premium suite with private workspace, concierge service, and exclusive lounge access.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
+                                </svg>
+                                <span>Free WiFi</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                <span>Valet Parking</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                                </svg>
+                                <span>Gym Access</span>
+                            </div>
+                        </div>
+                        <button class="w-full btn-primary text-white py-3 rounded-md font-medium">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+
+                <div 
+                    class="overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-right"
+                    data-aos-delay="600"
+                >
+                    <div class="relative h-64 overflow-hidden">
+                        <img 
+                            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Presidential Suite"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                        <span class="absolute top-4 left-4 bg-brand-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                            <svg class="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                            </svg>
+                            Presidential
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-2xl font-heading font-semibold text-foreground mb-2">Presidential Suite</h3>
+                                <div class="flex items-center space-x-1 mb-3">
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg class="h-4 w-4 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-3xl font-bold text-brand-600">$1,200</p>
+                                <p class="text-sm text-muted-foreground">per night</p>
+                            </div>
+                        </div>
+                        <p class="text-muted-foreground mb-4">
+                            The ultimate luxury experience with private butler, rooftop terrace, and helicopter pad access.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                </svg>
+                                <span>Butler Service</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                                </svg>
+                                <span>VIP Treatment</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-sm text-muted-foreground">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                                <span>Limousine</span>
+                            </div>
+                        </div>
+                        <button class="w-full btn-primary text-white py-3 rounded-md font-medium">
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div 
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Exclusive Offers
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Discover our limited-time promotions and seasonal packages designed to make your stay even more memorable.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div 
+                    class="overflow-hidden bg-brand-100 border border-brand-200 shadow-lg rounded-lg"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                >
+                    <div class="p-6 pb-4">
+                        <span class="w-fit bg-brand-500 text-white mb-2 px-3 py-1 rounded-full text-sm font-medium inline-block">Limited Time</span>
+                        <h3 class="text-3xl font-heading font-bold text-brand-700 mb-4">
+                            Early Bird Special
+                        </h3>
+                        <p class="text-lg text-brand-600 mb-4 font-medium">
+                            Save up to 25% on bookings made 30 days in advance
+                        </p>
+                        <p class="text-muted-foreground mb-6">
+                            Plan ahead and enjoy significant savings on all room categories. Includes complimentary breakfast and late checkout.
+                        </p>
+                        <button class="bg-brand-500 hover:bg-black text-white px-6 py-3 rounded-md font-medium transition-colors">
+                            Book Early & Save
+                        </button>
+                    </div>
+                </div>
+
+                <div 
+                    class="overflow-hidden bg-brand-50 border border-brand-200 shadow-lg rounded-lg"
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                >
+                    <div class="p-6 pb-4">
+                        <span class="w-fit bg-brand-700 text-white mb-2 px-3 py-1 rounded-full text-sm font-medium inline-block">Weekend Deal</span>
+                        <h3 class="text-3xl font-heading font-bold text-brand-700 mb-4">
+                            Weekend Escape
+                        </h3>
+                        <p class="text-lg text-brand-600 mb-4 font-medium">
+                            2 nights stay with spa credit and dining vouchers
+                        </p>
+                        <p class="text-muted-foreground mb-6">
+                            Perfect for a romantic getaway or relaxing weekend. Includes $200 spa credit and dinner for two at our award-winning restaurant.
+                        </p>
+                        <button class="bg-brand-700 hover:bg-black text-white px-6 py-3 rounded-md font-medium transition-colors">
+                            Plan Your Escape
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    World-Class Amenities
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Discover an array of premium facilities designed to enhance your stay with unparalleled comfort and luxury.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
+                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9 0v6a2 2 0 002 2h8a2 2 0 002-2v-6M7 7V3a2 2 0 012-2h6a2 2 0 012 2v4M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
+                        Infinity Pool
+                    </h3>
+                    <p class="text-muted-foreground">
+                        Rooftop infinity pool with panoramic city views, poolside service, and private cabanas.
+                    </p>
+                </div>
+
+                <div
+                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
+                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
+                        Luxury Spa
+                    </h3>
+                    <p class="text-muted-foreground">
+                        Award-winning spa featuring therapeutic treatments, sauna, and wellness programs.
+                    </p>
+                </div>
+
+                <div
+                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                >
+                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
+                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
+                        Fine Dining
+                    </h3>
+                    <p class="text-muted-foreground">
+                        Michelin-starred restaurant with world-renowned chefs and extensive wine collection.
+                    </p>
+                </div>
+
+                <div
+                    class="text-center bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg p-6"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                >
+                    <div class="mx-auto bg-brand-100 p-4 rounded-full w-fit mb-4">
+                        <svg class="h-8 w-8 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-foreground mb-4">
+                        Fitness Center
+                    </h3>
+                    <p class="text-muted-foreground">
+                        State-of-the-art gym with personal trainers, yoga classes, and wellness coaching.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    What Our Guests Say
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Discover why discerning travelers from around the world choose The Grandeur for their most memorable stays.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white shadow-lg border-0 relative rounded-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    <div class="p-6 pb-4">
+                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <div class="flex items-center space-x-1 mb-4">
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-muted-foreground leading-relaxed">
+                            "Absolutely exceptional service and breathtaking accommodations. The Presidential Suite exceeded all expectations. Every detail was perfect, from the butler service to the rooftop terrace views."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-6 pt-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="Sarah Johnson"
+                            class="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div>
+                            <p class="font-heading font-semibold text-foreground">Sarah Johnson</p>
+                            <p class="text-sm text-muted-foreground">Business Executive, New York</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white shadow-lg border-0 relative rounded-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    <div class="p-6 pb-4">
+                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <div class="flex items-center space-x-1 mb-4">
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-muted-foreground leading-relaxed">
+                            "Our wedding at The Grandeur was a dream come true. The event team was phenomenal, the venue was stunning, and our guests are still talking about the incredible experience."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-6 pt-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="Michael Chen"
+                            class="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div>
+                            <p class="font-heading font-semibold text-foreground">Michael & Emma Chen</p>
+                            <p class="text-sm text-muted-foreground">Newlyweds, San Francisco</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white shadow-lg border-0 relative rounded-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                >
+                    <div class="p-6 pb-4">
+                        <svg class="h-8 w-8 text-brand-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <div class="flex items-center space-x-1 mb-4">
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="h-5 w-5 fill-brand-400 text-brand-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="text-muted-foreground leading-relaxed">
+                            "The spa treatments were divine, the dining was world-class, and the concierge helped us discover hidden gems in the city. This is luxury hospitality at its finest."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-6 pt-0">
+                        <img
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="Isabella Rodriguez"
+                            class="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div>
+                            <p class="font-heading font-semibold text-foreground">Isabella Rodriguez</p>
+                            <p class="text-sm text-muted-foreground">Travel Blogger, Miami</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Awards & Recognition
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Our commitment to excellence has been recognized by the most prestigious organizations in hospitality.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">Forbes Five Star</h3>
+                    <p class="text-sm text-muted-foreground">2020-2024</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="400"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">AAA Five Diamond</h3>
+                    <p class="text-sm text-muted-foreground">2019-2024</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="600"
+                >
+                    <div class="bg-brand-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-brand-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">World's Best Hotels</h3>
+                    <p class="text-sm text-muted-foreground">Travel + Leisure</p>
+                </div>
+
+                <div
+                    class="text-center"
+                    data-aos="zoom-in"
+                    data-aos-delay="800"
+                >
+                    <div class="bg-green-100 p-6 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-foreground mb-2">Green Key Certified</h3>
+                    <p class="text-sm text-muted-foreground">Eco Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Explore the City
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Discover the best attractions, cultural sites, and experiences just minutes from our hotel.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                >
+                    <div class="h-48 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Historic District"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <svg class="h-5 w-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="bg-brand-100 text-brand-700 px-2 py-1 rounded-full text-sm font-medium">5 min walk</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Historic District</h3>
+                        <p class="text-muted-foreground">
+                            Explore centuries of history, charming cobblestone streets, and world-class museums in our vibrant historic quarter.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                >
+                    <div class="h-48 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Scenic Waterfront"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <svg class="h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm font-medium">10 min drive</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Scenic Waterfront</h3>
+                        <p class="text-muted-foreground">
+                            Enjoy stunning waterfront views, luxury shopping, fine dining, and scenic boat tours along the picturesque harbor.
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="overflow-hidden bg-white shadow-lg border-0 hover:shadow-xl transition-shadow duration-300 rounded-lg"
+                    data-aos="fade-left"
+                    data-aos-delay="600"
+                >
+                    <div class="h-48 overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Mountain Views"
+                            class="w-full h-full object-cover hover-scale"
+                        />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <svg class="h-5 w-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                            </svg>
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-sm font-medium">15 min drive</span>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-foreground mb-3">Mountain Trails</h3>
+                        <p class="text-muted-foreground">
+                            Experience breathtaking hiking trails, scenic overlooks, and outdoor adventures in our pristine mountain wilderness.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                class="text-center mb-16"
+                data-aos="fade-up"
+            >
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                    Gallery
+                </h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Take a visual journey through The Grandeur's stunning spaces, from our elegant interiors to breathtaking views.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    class="lg:col-span-2 lg:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Luxury Hotel Lobby"
+                        class="w-full h-96 lg:h-full object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-8 w-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="font-medium">Grand Lobby</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-left"
+                    data-aos-delay="400"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Presidential Suite"
+                        class="w-full h-48 object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-6 w-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="text-sm font-medium">Presidential Suite</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-left"
+                    data-aos-delay="600"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Fine Dining Restaurant"
+                        class="w-full h-48 object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-6 w-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="text-sm font-medium">Fine Dining</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Luxury Spa"
+                        class="w-full h-48 object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-6 w-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="text-sm font-medium">Luxury Spa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-up"
+                    data-aos-delay="1000"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Rooftop Pool"
+                        class="w-full h-48 object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-6 w-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="text-sm font-medium">Rooftop Pool</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                    data-aos="fade-up"
+                    data-aos-delay="1200"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        alt="Hotel Exterior"
+                        class="w-full h-48 object-cover hover-scale"
+                    />
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <svg class="h-6 w-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                            <p class="text-sm font-medium">Hotel Exterior</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="1400">
+                <button class="btn-primary text-white font-medium px-8 py-3 rounded-md flex items-center mx-auto">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    View Full Gallery
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-brand-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <svg class="h-16 w-16 text-white mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+                    Stay in Touch
+                </h2>
+                <p class="text-xl text-brand-100 mb-8 max-w-2xl mx-auto">
+                    Subscribe to receive exclusive offers, special packages, and insider news about The Grandeur's latest experiences.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        class="bg-white/10 border border-white/20 text-white placeholder:text-brand-200 h-12 px-4 rounded-md flex-1"
+                    />
+                    <button class="bg-white text-brand-600 h-12 px-8 font-medium rounded-md transition-colors hover:bg-black hover:text-white">
+                        Subscribe
+                    </button>
+                </div>
+                <p class="text-sm text-brand-100 mt-4">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <svg class="h-8 w-8 text-brand-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                        </svg>
+                        <span class="text-2xl font-heading font-bold">The Grandeur</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Experience luxury redefined at The Grandeur, where elegance meets comfort in perfect harmony.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-brand-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-brand-400 transition-colors">About Us</a></li>
+                        <li><a href="#rooms" class="text-gray-300 hover:text-brand-400 transition-colors">Rooms & Suites</a></li>
+                        <li><a href="#amenities" class="text-gray-300 hover:text-brand-400 transition-colors">Amenities</a></li>
+                        <li><a href="#dining" class="text-gray-300 hover:text-brand-400 transition-colors">Dining</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Luxury Boulevard</li>
+                        <li>Metropolitan City, MC 12345</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Email: reservations@thegrandeur.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Facebook</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Instagram</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Grandeur Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

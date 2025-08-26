@@ -6,38 +6,65 @@
     <title>Booking Confirmed - The Grandeur</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <script>
-        // Your Tailwind Config
         tailwind.config = {
-             darkMode: 'class',
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { heading: ['Merriweather', 'serif'], body: ['Lora', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'], },
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
                     colors: {
+                        // New color palette based on #c77a63
                         brand: {
-                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
-                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
-                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                            50: 'hsl(14, 40%, 98%)',
+                            100: 'hsl(14, 40%, 95%)',
+                            200: 'hsl(14, 40%, 90%)',
+                            300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)',
+                            500: '#c77a63',
+                            600: 'hsl(14, 43%, 50%)',
+                            700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)',
+                            900: 'hsl(14, 40%, 20%)',
                         },
-                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
-                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
-                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                        // Semantic colors updated for black text
+                        background: 'hsl(14, 40%, 98%)',
+                        foreground: '#111111', // Black color for main text
+                        card: 'hsl(0, 0%, 100%)',
+                        'card-foreground': '#111111', // Black color
+                        popover: 'hsl(0, 0%, 100%)',
+                        'popover-foreground': '#111111', // Black color
+                        primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)',
+                        secondary: 'hsl(14, 40%, 95%)',
+                        'secondary-foreground': '#111111', // Black color
+                        muted: 'hsl(14, 40%, 90%)',
+                        'muted-foreground': '#333333', // Dark gray for muted text, looks almost black
+                        accent: 'hsl(14, 40%, 90%)',
+                        'accent-foreground': '#111111', // Black color
+                        destructive: 'hsl(0 84.2% 60.2%)',
+                        'destructive-foreground': 'hsl(210 40% 98%)',
+                        border: 'hsl(14, 42%, 80%)',
+                        input: 'hsl(14, 42%, 80%)',
+                        ring: 'hsl(14, 43%, 59%)',
                     }
                 }
             }
-        };
+        }
     </script>
     
-    <style>
-        body { font-family: 'Lora', serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
-        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
-        .btn-primary:hover { background-color: #111111; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-brand-50">
 
@@ -54,7 +81,7 @@
                 <div class="nav-desktop hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Home</a>
                     <a href="about.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">About</a>
-                    <a href="about.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
+                    <a href="rooms.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
                     <a href="gallery.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Gallery</a>
                     <a href="blog.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Blog</a>
                     <a href="contact.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Contact</a>
@@ -143,12 +170,85 @@
         </div>
     </main>
 
-    <footer class="bg-brand-900 text-white py-16">
-        </footer>
+       <footer class="bg-brand-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <svg class="h-8 w-8 text-brand-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                        </svg>
+                        <span class="text-2xl font-heading font-bold">The Grandeur</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Experience luxury redefined at The Grandeur, where elegance meets comfort in perfect harmony.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-brand-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-brand-400 transition-colors">About Us</a></li>
+                        <li><a href="#rooms" class="text-gray-300 hover:text-brand-400 transition-colors">Rooms & Suites</a></li>
+                        <li><a href="#amenities" class="text-gray-300 hover:text-brand-400 transition-colors">Amenities</a></li>
+                        <li><a href="#dining" class="text-gray-300 hover:text-brand-400 transition-colors">Dining</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Luxury Boulevard</li>
+                        <li>Metropolitan City, MC 12345</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Email: reservations@thegrandeur.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Facebook</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Instagram</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Grandeur Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 50 });
-    </script>
+    <div class="fixed bottom-8 right-8 z-50">
+    <div id="chat-widget" class="hidden w-80 md:w-96 h-[32rem] bg-white rounded-2xl shadow-2xl flex flex-col transform transition-all duration-300 origin-bottom-right" data-aos="fade-up">
+        <div class="bg-brand-600 text-white p-4 rounded-t-2xl flex justify-between items-center">
+            <h3 class="font-heading font-bold text-lg">How can we help?</h3>
+            <button id="chat-close-btn" class="text-white hover:text-brand-100">&times;</button>
+        </div>
+
+        <div id="chat-messages" class="flex-grow p-4 space-y-4 overflow-y-auto">
+            <div class="bot-message p-3 rounded-lg max-w-xs">
+                Welcome to The Grandeur! How can I assist you today?
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-brand-100">
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-grow border border-input rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-ring">
+                <button id="chat-send-btn" class="btn-primary text-white p-3 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button id="chat-open-btn" class="bg-brand-500 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 5.523-4.477 10-10 10S1 17.523 1 12 5.477 2 11 2s10 4.477 10 10z"></path></svg>
+    </button>
+</div>
+
+ <script src="main.js"></script>
+</body>
+</html>
 
 </body>
 </html>

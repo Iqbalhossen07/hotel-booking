@@ -65,77 +65,7 @@
         }
     </script>
     
-    <style>
-        body {
-            font-family: 'Lora', serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Merriweather', serif;
-        }
-        
-        .hover-scale {
-            transition: transform 0.5s ease;
-        }
-        
-        .hover-scale:hover {
-            transform: scale(1.1);
-        }
-        
-        .btn-primary {
-            background-color: #c77a63; /* Main Brand Color */
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: #111111; /* Changed to Black on hover */
-        }
-        
-        .btn-outline {
-            border: 2px solid white;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline:hover {
-            background: white;
-            color: #111111; /* Changed to black on hover */
-        }
-        
-        .mobile-menu {
-            display: none;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-desktop {
-                display: none;
-            }
-        }
-
-            .swiper-pagination-bullet-active {
-        background-color: #c77a63 !important;
-    }
-
-
-      /* Chat Widget Styles */
-    #chat-widget {
-        transition: all 0.3s ease-in-out;
-    }
-    .user-message {
-        background-color: #c77a63; /* Brand color */
-        color: white;
-        align-self: flex-end;
-    }
-    .bot-message {
-        background-color: #f1f1f1; /* Light gray */
-        color: #333;
-        align-self: flex-start;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen bg-background text-foreground font-body">
 
@@ -150,18 +80,18 @@
                 </div>
                 
                 <div class="nav-desktop hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-foreground hover:text-brand-500 transition-colors font-medium">Home</a>
-                    <a href="#about" class="text-foreground hover:text-brand-500 transition-colors font-medium">About</a>
-                    <a href="#rooms" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
-                    <a href="#amenities" class="text-foreground hover:text-brand-500 transition-colors font-medium">Amenities</a>
-                    <a href="#dining" class="text-foreground hover:text-brand-500 transition-colors font-medium">Dining</a>
-                    <a href="#contact" class="text-foreground hover:text-brand-500 transition-colors font-medium">Contact</a>
+                    <a href="index.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">About</a>
+                    <a href="about.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
+                    <a href="gallery.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Gallery</a>
+                    <a href="blog.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Blog</a>
+                    <a href="contact.html" class="text-foreground hover:text-brand-500 transition-colors font-medium">Contact</a>
                 </div>
                 
                 <div class="flex items-center space-x-4">
-                    <button class="btn-primary text-white font-medium px-6 py-2 rounded-md">
+                    <a href="booking.html" class="btn-primary text-white font-medium px-6 py-2 rounded-md">
                         Book Now
-                    </button>
+                    </a>
                     
                     <button id="mobile-menu-btn" class="md:hidden text-foreground">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,12 +103,12 @@
             
             <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-border">
                 <div class="space-y-2">
-                    <a href="#home" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Home</a>
-                    <a href="#about" class="block py-2 text-foreground hover:text-brand-500 transition-colors">About</a>
-                    <a href="#rooms" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Rooms</a>
-                    <a href="#amenities" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Amenities</a>
-                    <a href="#dining" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Dining</a>
-                    <a href="#contact" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Contact</a>
+                    <a href="index.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Home</a>
+                    <a href="about.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">About</a>
+                    <a href="rooms.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Rooms</a>
+                    <a href="gallery.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Gallery</a>
+                    <a href="blog.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Blog</a>
+                    <a href="contact.html" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Contact</a>
                 </div>
             </div>
         </div>
@@ -194,7 +124,7 @@
         <div class="absolute inset-0 z-20 flex items-center justify-center">
             <div class="text-center text-white max-w-4xl mx-auto px-4">
                 <h1 
-                    class="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight"
+                    class="text-3xl md:text-6xl font-heading font-bold mb-6 leading-tight"
                     data-aos="fade-up"
                     data-aos-delay="200"
                 >
@@ -302,7 +232,7 @@
                 class="text-center mb-16"
                 data-aos="fade-up"
             >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                     Our Exclusive Offers
                 </h2>
                 <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -380,7 +310,7 @@
                 class="text-center mb-16"
                 data-aos="fade-up"
             >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                     Exquisite Accommodations
                 </h2>
                 <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -590,7 +520,7 @@
                 class="text-center mb-16"
                 data-aos="fade-up"
             >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                     Our World-Class Facilities
                 </h2>
                 <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -691,7 +621,7 @@
                 class="text-center mb-16"
                 data-aos="fade-up"
             >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                     Gallery
                 </h2>
                 <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -790,7 +720,7 @@
                     data-aos-delay="1000"
                 >
                     <img
-                        src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        src="https://images.unsplash.com/photo-1645255108418-415ac52c897a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Rooftop Pool"
                         class="w-full h-48 object-cover hover-scale"
                     />
@@ -811,7 +741,7 @@
                     data-aos-delay="1200"
                 >
                     <img
-                        src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        src="https://images.unsplash.com/photo-1673217233981-0151509bbf06?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Hotel Exterior"
                         class="w-full h-48 object-cover hover-scale"
                     />
@@ -851,7 +781,7 @@
             class="text-center mb-16"
             data-aos="fade-up"
         >
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                 What Our Guests Say
             </h2>
             <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -947,7 +877,7 @@
                 class="text-center mb-16"
                 data-aos="fade-up"
             >
-                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                     Awards & Recognition
                 </h2>
                 <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -1023,7 +953,7 @@
             class="text-center mb-16"
             data-aos="fade-up"
         >
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                 From Our Journal
             </h2>
             <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -1118,7 +1048,7 @@
             class="text-center mb-16"
             data-aos="fade-up"
         >
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-foreground mb-6">
                 Frequently Asked Questions
             </h2>
             <p class="text-xl text-muted-foreground max-w-3xl mx-auto">

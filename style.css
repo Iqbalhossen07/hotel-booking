@@ -1,0 +1,70 @@
+
+        body {
+            font-family: 'Lora', serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+        }
+        
+        .hover-scale {
+            transition: transform 0.5s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.1);
+        }
+        
+        .btn-primary {
+            background-color: #c77a63; /* Main Brand Color */
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #111111; /* Changed to Black on hover */
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #111111; /* Changed to black on hover */
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+            .swiper-pagination-bullet-active {
+        background-color: #c77a63 !important;
+    }
+
+
+      /* Chat Widget Styles */
+    #chat-widget {
+        transition: all 0.3s ease-in-out;
+    }
+    .user-message {
+        background-color: #c77a63; /* Brand color */
+        color: white;
+        align-self: flex-end;
+    }
+    .bot-message {
+        background-color: #f1f1f1; /* Light gray */
+        color: #333;
+        align-self: flex-start;
+    }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Grandeur</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Your Tailwind Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+    </style>
+</head>
+<body class="bg-background">
+
+    <nav class="sticky top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        </nav>
+
+    <section class="relative h-96 bg-brand-800 flex items-center justify-center pt-20">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbb5b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80" alt="The Grandeur Hotel Exterior" class="absolute inset-0 w-full h-full object-cover opacity-30">
+        <div class="relative z-10 text-center text-white" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-heading font-bold">Our Story</h1>
+            <p class="text-xl mt-4 text-brand-100 max-w-2xl mx-auto">Crafting Moments of Unforgettable Luxury Since 1998</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center rounded-lg shadow-xl ">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1645619179966-1647b5591f80?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vintage Hotel Lobby" class="rounded-lg shadow-xl w-full h-full object-cover">
+                </div>
+                <div data-aos="fade-left ">
+                    <h2 class="text-4xl font-heading font-bold text-foreground">A Legacy of Elegance</h2>
+                    <p class="mt-4 text-lg text-muted-foreground leading-relaxed p-4">
+                        Founded in 1998, The Grandeur was born from a vision to create an oasis of tranquility and timeless luxury in the heart of the city. Our founders traveled the world, gathering inspiration from the finest hotels to build a destination that is not just a place to stay, but a place to be inspired.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center rounded-lg shadow-xl">
+                <div class="md:order-last" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1559841771-599b6eeaca62?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hotel Service" class="rounded-lg shadow-xl w-full h-full object-cover">
+                </div>
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-heading font-bold text-foreground p-4">Our Philosophy of Service</h2>
+                    <p class="mt-4 text-lg text-muted-foreground leading-relaxed p-4">
+                        Our philosophy is simple: to provide impeccable, intuitive service that anticipates your every need. We believe true luxury lies in the details – a warm welcome, a perfectly crafted cocktail, and a team that genuinely cares about making your stay extraordinary.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-background">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-foreground">Our Core Values</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-xl text-center transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-brand-50 inline-block p-5 rounded-full mb-4">
+                        <svg class="h-10 w-10 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold">Excellence</h3>
+                    <p class="mt-2 text-muted-foreground">We are committed to the highest standards in everything we do, from our amenities to our service.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl text-center transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-brand-50 inline-block p-5 rounded-full mb-4">
+                        <svg class="h-10 w-10 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold">Hospitality</h3>
+                    <p class="mt-2 text-muted-foreground">We believe in providing warm, genuine, and intuitive service that makes every guest feel at home.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-xl text-center transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-brand-50 inline-block p-5 rounded-full mb-4">
+                        <svg class="h-10 w-10 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12 12 0 0012 21a12 12 0 008.618-4.956 11.955 11.955 0 01-5.618-3.04z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold">Integrity</h3>
+                    <p class="mt-2 text-muted-foreground">We operate with honesty and transparency, building trust with our guests, partners, and community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-700">
+        <div class="max-w-4xl mx-auto px-4 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl font-heading font-bold text-white">Begin Your Journey With Us</h2>
+            <p class="mt-4 text-xl text-brand-100 max-w-2xl mx-auto">
+                Explore our exquisite rooms and suites and discover the perfect setting for your next escape.
+            </p>
+            <a href="rooms.html" class="mt-8 inline-block bg-white text-brand-700 font-bold px-10 py-4 rounded-lg shadow-lg hover:bg-brand-50 transition-colors">
+                View Our Rooms
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-brand-900 text-white py-16">
+        </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+
+</body>
+</html>

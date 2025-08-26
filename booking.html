@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Booking - The Grandeur</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Your Tailwind Config
+        tailwind.config = {
+             darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Merriweather', 'serif'], body: ['Lora', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'], },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+        .progress-step.active .progress-circle { background-color: #c77a63; color: white; border-color: #c77a63; }
+        .progress-step.completed .progress-circle { background-color: #16a34a; color: white; border-color: #16a34a; }
+        .progress-line { background-color: #e5e7eb; }
+        .progress-line.active { background-color: #c77a63; }
+    </style>
+</head>
+<body class="bg-brand-50">
+
+    <nav class="sticky top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        </nav>
+
+    <main class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-foreground">Complete Your Booking</h1>
+                <p class="mt-3 text-lg text-muted-foreground">You're just a few steps away from your luxury escape.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto mt-12 mb-16" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center">
+                    <div id="progress-step-1" class="progress-step active flex-1 text-center">
+                        <div class="progress-circle mx-auto h-12 w-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-lg bg-white">1</div>
+                        <p class="mt-2 text-sm font-semibold">Selection</p>
+                    </div>
+                    <div id="progress-line-1" class="progress-line h-1 flex-1 transition-colors duration-500"></div>
+                    <div id="progress-step-2" class="progress-step flex-1 text-center">
+                        <div class="progress-circle mx-auto h-12 w-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-lg bg-white">2</div>
+                        <p class="mt-2 text-sm">Guest Info</p>
+                    </div>
+                    <div id="progress-line-2" class="progress-line h-1 flex-1 transition-colors duration-500"></div>
+                    <div id="progress-step-3" class="progress-step flex-1 text-center">
+                        <div class="progress-circle mx-auto h-12 w-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-lg bg-white">3</div>
+                        <p class="mt-2 text-sm">Payment</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <div id="step-1" class="booking-step bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                        <h2 class="text-2xl font-heading font-bold mb-6">1. Select Room & Dates</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Room Type</label>
+                                <select class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
+                                    <option>Deluxe Room</option>
+                                    <option>Executive Suite</option>
+                                    <option>Presidential Suite</option>
+                                </select>
+                            </div>
+                            <div></div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Check-in Date</label>
+                                <input type="date" value="2025-09-10" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
+                            </div>
+                             <div>
+                                <label class="block text-sm font-medium text-gray-700">Check-out Date</label>
+                                <input type="date" value="2025-09-12" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
+                            </div>
+                        </div>
+                        <div class="mt-8 text-right">
+                            <button id="btn-next-1" class="btn-primary text-white font-bold py-3 px-8 rounded-md">Next: Guest Info</button>
+                        </div>
+                    </div>
+                    
+                    <div id="step-2" class="booking-step hidden bg-white p-8 rounded-lg shadow-lg">
+                         <h2 class="text-2xl font-heading font-bold mb-6">2. Guest Information</h2>
+                         <div class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div><label class="block text-sm font-medium text-gray-700">First Name</label><input type="text" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                                <div><label class="block text-sm font-medium text-gray-700">Last Name</label><input type="text" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                            </div>
+                            <div><label class="block text-sm font-medium text-gray-700">Email Address</label><input type="email" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                            <div><label class="block text-sm font-medium text-gray-700">Phone Number</label><input type="tel" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                         </div>
+                         <div class="mt-8 flex justify-between">
+                            <button id="btn-back-1" class="bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-md">Back</button>
+                            <button id="btn-next-2" class="btn-primary text-white font-bold py-3 px-8 rounded-md">Next: Payment</button>
+                        </div>
+                    </div>
+                    
+                    <div id="step-3" class="booking-step hidden bg-white p-8 rounded-lg shadow-lg">
+                         <h2 class="text-2xl font-heading font-bold mb-6">3. Payment Details</h2>
+                         <p class="text-center text-muted-foreground mb-6">This is a demo. Please do not enter real credit card information.</p>
+                         <div class="space-y-6">
+                             <div><label class="block text-sm font-medium text-gray-700">Name on Card</label><input type="text" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                             <div><label class="block text-sm font-medium text-gray-700">Card Number</label><input type="text" placeholder="xxxx xxxx xxxx xxxx" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                             <div class="grid grid-cols-2 gap-6">
+                                <div><label class="block text-sm font-medium text-gray-700">Expiry Date</label><input type="text" placeholder="MM/YY" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                                <div><label class="block text-sm font-medium text-gray-700">CVC</label><input type="text" placeholder="123" class="mt-1 w-full rounded-md border-gray-300 bg-brand-50 shadow-sm py-3 px-4 focus:border-brand-500 focus:ring-1 focus:ring-brand-500"></div>
+                             </div>
+                         </div>
+                         <div class="mt-8 flex justify-between">
+                            <button id="btn-back-2" class="bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-md">Back</button>
+                            <button class="btn-primary text-white font-bold py-3 px-8 rounded-md">Confirm Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1" data-aos="fade-left">
+                    <div class="sticky top-28">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Selected Room" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-heading font-bold text-foreground">Booking Summary</h3>
+                                <div class="mt-6 space-y-4 border-t border-b border-brand-100 py-4">
+                                    <div class="flex justify-between"><span class="font-semibold">Room:</span><span>Deluxe Room</span></div>
+                                    <div class="flex justify-between"><span class="font-semibold">Check-in:</span><span>Sep 10, 2025</span></div>
+                                    <div class="flex justify-between"><span class="font-semibold">Check-out:</span><span>Sep 12, 2025</span></div>
+                                    <div class="flex justify-between"><span class="font-semibold">Guests:</span><span>2 Adults</span></div>
+                                </div>
+                                <div class="mt-4 space-y-2">
+                                    <div class="flex justify-between text-muted-foreground"><span>2 nights x $250</span><span>$500.00</span></div>
+                                    <div class="flex justify-between text-muted-foreground"><span>Taxes & Fees</span><span>$65.00</span></div>
+                                    <div class="flex justify-between font-bold text-xl mt-4 text-foreground"><span>Total</span><span>$565.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-900 text-white py-16 mt-24">
+        </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // JavaScript for Multi-Step Booking Form
+        const steps = document.querySelectorAll('.booking-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const progressLines = document.querySelectorAll('.progress-line');
+        
+        const nextBtn1 = document.getElementById('btn-next-1');
+        const nextBtn2 = document.getElementById('btn-next-2');
+        const backBtn1 = document.getElementById('btn-back-1');
+        const backBtn2 = document.getElementById('btn-back-2');
+        
+        let currentStep = 1;
+
+        const updateSteps = () => {
+            steps.forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.remove('hidden');
+                } else {
+                    step.classList.add('hidden');
+                }
+            });
+
+            progressSteps.forEach((step, index) => {
+                const circle = step.querySelector('.progress-circle');
+                step.classList.remove('active', 'completed');
+                if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                    circle.innerHTML = '&#10003;'; // Checkmark
+                } else if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                     circle.innerHTML = index + 1;
+                } else {
+                     circle.innerHTML = index + 1;
+                }
+            });
+            
+            progressLines.forEach((line, index) => {
+                if (index + 1 < currentStep) {
+                    line.classList.add('active');
+                } else {
+                    line.classList.remove('active');
+                }
+            });
+        };
+
+        nextBtn1.addEventListener('click', () => { currentStep = 2; updateSteps(); });
+        nextBtn2.addEventListener('click', () => { currentStep = 3; updateSteps(); });
+        backBtn1.addEventListener('click', () => { currentStep = 1; updateSteps(); });
+        backBtn2.addEventListener('click', () => { currentStep = 2; updateSteps(); });
+
+    </script>
+
+</body>
+</html>

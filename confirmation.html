@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed - The Grandeur</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Your Tailwind Config
+        tailwind.config = {
+             darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { heading: ['Merriweather', 'serif'], body: ['Lora', 'serif'], sans: ['Inter', 'system-ui', 'sans-serif'], },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+    </style>
+</head>
+<body class="bg-brand-50">
+
+    <nav class="sticky top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        </nav>
+
+    <main class="py-24 md:py-32">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-2xl p-8 md:p-12 text-center" data-aos="zoom-in">
+                
+                <div class="mx-auto bg-green-100 h-20 w-20 rounded-full flex items-center justify-center">
+                    <svg class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+
+                <h1 class="mt-6 text-4xl md:text-5xl font-heading font-bold text-foreground">
+                    Thank You!
+                </h1>
+                <p class="mt-4 text-lg text-muted-foreground">
+                    Your reservation at The Grandeur is confirmed. We are delighted to welcome you.
+                </p>
+
+                <div class="my-8 text-left border-t border-b border-brand-100 py-6 space-y-4">
+                    <div class="flex justify-between">
+                        <span class="font-semibold text-gray-500">Booking ID:</span>
+                        <span class="font-bold text-foreground">GRD-8A4B2C</span>
+                    </div>
+                     <div class="flex justify-between">
+                        <span class="font-semibold text-gray-500">Room Type:</span>
+                        <span class="font-bold text-foreground">Deluxe Room</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold text-gray-500">Check-in:</span>
+                        <span class="font-bold text-foreground">September 10, 2025</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold text-gray-500">Check-out:</span>
+                        <span class="font-bold text-foreground">September 12, 2025</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold text-gray-500">Total Paid:</span>
+                        <span class="font-bold text-brand-600 text-xl">$565.00</span>
+                    </div>
+                </div>
+
+                <p class="text-muted-foreground">
+                    A confirmation email with all the details and your receipt has been sent to your registered email address.
+                </p>
+
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="index.html" class="w-full sm:w-auto btn-primary text-white font-bold py-3 px-8 rounded-md">
+                        Back to Homepage
+                    </a>
+                    <a href="#" class="w-full sm:w-auto bg-gray-200 text-gray-700 font-bold py-3 px-8 rounded-md hover:bg-gray-300 transition-colors">
+                        Print Receipt
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-900 text-white py-16">
+        </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+
+</body>
+</html>

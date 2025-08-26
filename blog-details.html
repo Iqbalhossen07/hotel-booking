@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Details - The Grandeur</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Your Tailwind Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+        /* Styles for article content */
+        .prose h2 { font-size: 1.875rem; margin-top: 2.5rem; margin-bottom: 1.25rem; font-family: 'Merriweather', serif; font-weight: bold; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.75; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; }
+        .prose li { margin-bottom: 0.5rem; }
+        .prose blockquote { border-left: 4px solid #c77a63; padding-left: 1rem; margin: 2rem 0; font-style: italic; color: #555; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <nav class="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        </nav>
+
+    <main class="pt-24">
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                    <div class="lg:col-span-2">
+                        <div data-aos="fade-up">
+                            <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold">Food & Dining</span>
+                            <h1 class="mt-4 text-4xl md:text-5xl font-heading font-bold text-foreground leading-tight">
+                                A Food Lover's Guide to Our City's Culinary Scene
+                            </h1>
+                            <div class="mt-6 flex items-center">
+                                <img class="h-14 w-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Author Jane Doe">
+                                <div class="ml-4">
+                                    <p class="font-semibold text-foreground">by Jane Doe</p>
+                                    <p class="text-sm text-muted-foreground">Published on August 26, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8" data-aos="fade-up" data-aos-delay="100">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80" alt="Culinary Scene" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                        </div>
+
+                        <article class="prose max-w-none mt-12 text-lg text-muted-foreground" data-aos="fade-up" data-aos-delay="200">
+                            <p>Welcome to a city where every meal is a celebration! As curators of luxury experiences, we believe that exploring the local culinary scene is an essential part of any journey. Our city offers a vibrant tapestry of flavors, from traditional eateries tucked away in charming alleys to world-renowned Michelin-starred restaurants. This guide is your passport to the most unforgettable dining experiences just moments away from The Grandeur.</p>
+                            
+                            <h2>The Farm-to-Table Revolution</h2>
+                            <p>In recent years, a strong emphasis on fresh, locally-sourced ingredients has taken the city by storm. Chefs are partnering with local farms to bring seasonal produce directly to your plate. We recommend visiting "The Gilded Spoon," a restaurant celebrated for its innovative approach to classic dishes, where the menu changes weekly based on the harvest.</p>
+
+                            <blockquote>"To eat is a necessity, but to eat intelligently is an art." - La Rochefoucauld</blockquote>
+
+                            <h2>Must-Try Local Delicacies</h2>
+                            <p>No visit is complete without indulging in the local flavors. Here are a few dishes you absolutely must try:</p>
+                            <ul>
+                                <li><strong>Seared Scallops with Saffron Risotto:</strong> A coastal classic that highlights the freshness of our seafood.</li>
+                                <li><strong>Slow-Roasted Lamb Shank:</strong> A hearty and flavorful dish, perfect after a day of exploring.</li>
+                                <li><strong>Artisanal Cheese Platter:</strong> Featuring a selection of cheeses from nearby dairy farms.</li>
+                            </ul>
+                            <p>Our concierge at The Grandeur would be delighted to make reservations for you at any of these establishments or recommend others based on your personal taste. Bon appétit!</p>
+                        </article>
+                        
+                        <div class="mt-12 flex flex-col md:flex-row justify-between items-center border-t border-b border-brand-100 py-6" data-aos="fade-up">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-semibold">Tags:</span>
+                                <a href="#" class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm">Dining</a>
+                                <a href="#" class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm">Travel</a>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                <span class="font-semibold">Share:</span>
+                                <a href="#" class="text-muted-foreground hover:text-brand-600">Facebook</a>
+                                <a href="#" class="text-muted-foreground hover:text-brand-600">Twitter</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <aside class="lg:col-span-1">
+                        <div class="sticky top-28 space-y-8" data-aos="fade-left">
+                            <div class="bg-brand-50 p-6 rounded-lg">
+                                <h4 class="font-heading font-bold text-xl mb-4">Search</h4>
+                                <div class="relative"><input type="text" placeholder="Search articles..." class="w-full border border-input rounded-md px-4 py-2"><svg class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></div>
+                            </div>
+                            <div class="bg-brand-50 p-6 rounded-lg">
+                                <h4 class="font-heading font-bold text-xl mb-4">Categories</h4>
+                                <ul class="space-y-3">
+                                    <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Food & Dining</span><span>(4)</span></a></li>
+                                    <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Travel Guide</span><span>(8)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-brand-50">
+            </section>
+    </main>
+    
+    <footer class="bg-brand-900 text-white py-16">
+        </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+
+</body>
+</html>

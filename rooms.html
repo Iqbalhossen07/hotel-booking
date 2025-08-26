@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms & Suites - The Grandeur</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+        .btn-outline { border: 2px solid white; color: white; transition: all 0.3s ease; }
+        .btn-outline:hover { background: white; color: #111111; }
+
+        /* Styles for Room Slider */
+        .room-slider .swiper-slide { overflow: hidden; }
+        .room-slider .swiper-slide img { transition: transform 0.5s ease; }
+        .room-slider:hover .swiper-slide img { transform: scale(1.1); }
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff !important; background-color: rgba(0, 0, 0, 0.3);
+            width: 44px; height: 44px; border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover { background-color: rgba(0, 0, 0, 0.5); }
+        .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px !important; font-weight: bold; }
+        .swiper-pagination-bullet-active { background-color: #ffffff !important; }
+    </style>
+</head>
+<body class="min-h-screen bg-background text-foreground font-body">
+
+ <nav class="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <svg class="h-8 w-8 text-brand-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                    </svg>
+                    <span class="text-2xl font-heading font-bold text-foreground">The Grandeur</span>
+                </div>
+                
+                <div class="nav-desktop hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-foreground hover:text-brand-500 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-foreground hover:text-brand-500 transition-colors font-medium">About</a>
+                    <a href="#rooms" class="text-foreground hover:text-brand-500 transition-colors font-medium">Rooms</a>
+                    <a href="#amenities" class="text-foreground hover:text-brand-500 transition-colors font-medium">Amenities</a>
+                    <a href="#dining" class="text-foreground hover:text-brand-500 transition-colors font-medium">Dining</a>
+                    <a href="#contact" class="text-foreground hover:text-brand-500 transition-colors font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="btn-primary text-white font-medium px-6 py-2 rounded-md">
+                        Book Now
+                    </button>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden text-foreground">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu md:hidden py-4 border-t border-border">
+                <div class="space-y-2">
+                    <a href="#home" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Home</a>
+                    <a href="#about" class="block py-2 text-foreground hover:text-brand-500 transition-colors">About</a>
+                    <a href="#rooms" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Rooms</a>
+                    <a href="#amenities" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Amenities</a>
+                    <a href="#dining" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Dining</a>
+                    <a href="#contact" class="block py-2 text-foreground hover:text-brand-500 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-80 bg-brand-800 flex items-center justify-center pt-20">
+    <img src="https://images.unsplash.com/photo-1568495248636-6432b97bd949?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80" alt="Luxurious Room View" class="absolute inset-0 w-full h-full object-cover opacity-30">
+        <div class="relative z-10 text-center text-white" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-heading font-bold">Rooms & Suites</h1>
+            <p class="text-xl mt-4 text-brand-100">A Symphony of Comfort and Elegance, Crafted for Your Ultimate Relaxation.</p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <div>
+                    <div class="swiper room-slider-1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Deluxe Room Bed"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1598605272254-16f0c0ecdfa5?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Deluxe Room View"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Deluxe Room Detail"></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="p-8 md:p-12">
+                    <h2 class="text-4xl font-heading font-bold text-foreground">Deluxe Room</h2>
+                    <p class="mt-4 text-lg text-muted-foreground">Our Deluxe Rooms offer a perfect blend of comfort and style. Featuring a plush king-sized bed, a modern workspace, and a stunning city view, it's the ideal sanctuary for both leisure and business travelers.</p>
+                    <div class="mt-6 grid grid-cols-2 gap-4 text-muted-foreground">
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>King Size Bed</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.97l-2.714 5.428a2 2 0 001.736 2.97h4.615a2 2 0 002-2z"/></svg>2 Guests</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>35m² / 375ft²</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>City View</span>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <p class="text-2xl font-bold text-brand-600">from $250 <span class="text-sm font-normal text-muted-foreground">/ night</span></p>
+                        <button class="btn-primary text-white font-medium px-8 py-3 rounded-md">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <div class="md:order-last">
+                    <div class="swiper room-slider-2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Executive Suite Living Area"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Executive Suite Bedroom"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Executive Suite Workspace"></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="p-8 md:p-12">
+                    <h2 class="text-4xl font-heading font-bold text-foreground">Executive Suite</h2>
+                    <p class="mt-4 text-lg text-muted-foreground">Designed for the discerning business traveler, the Executive Suite features a spacious living area separate from the bedroom, a large work desk, and access to our exclusive Executive Lounge.</p>
+                    <div class="mt-6 grid grid-cols-2 gap-4 text-muted-foreground">
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>King Size Bed</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.97l-2.714 5.428a2 2 0 001.736 2.97h4.615a2 2 0 002-2z"/></svg>2 Guests</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>60m² / 645ft²</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>Living Area</span>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <p class="text-2xl font-bold text-brand-600">from $450 <span class="text-sm font-normal text-muted-foreground">/ night</span></p>
+                        <button class="btn-primary text-white font-medium px-8 py-3 rounded-md">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <div>
+                    <div class="swiper room-slider-3">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Presidential Suite Main View"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1595526114035-0d45ab162544?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Presidential Suite Bathroom"></div>
+                            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1576354302919-9e483848b6b8?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Presidential Suite Dining Area"></div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="p-8 md:p-12">
+                     <h2 class="text-4xl font-heading font-bold text-foreground">Presidential Suite</h2>
+                    <p class="mt-4 text-lg text-muted-foreground">The pinnacle of luxury, our Presidential Suite offers unparalleled opulence. With a panoramic top-floor view, a private dining area, a Jacuzzi, and dedicated butler service, it's an experience of a lifetime.</p>
+                     <div class="mt-6 grid grid-cols-2 gap-4 text-muted-foreground">
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>2 King Beds</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.97l-2.714 5.428a2 2 0 001.736 2.97h4.615a2 2 0 002-2z"/></svg>4 Guests</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>150m² / 1615ft²</span>
+                        <span class="flex items-center"><svg class="h-5 w-5 mr-2 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>Butler Service</span>
+                    </div>
+                    <div class="mt-8 flex items-center justify-between">
+                        <p class="text-2xl font-bold text-brand-600">from $1200 <span class="text-sm font-normal text-muted-foreground">/ night</span></p>
+                        <button class="btn-primary text-white font-medium px-8 py-3 rounded-md">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="bg-brand-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <svg class="h-8 w-8 text-brand-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 6l5.5 4L12 4l3.5 6L21 6l-2 10H5zm2.7-2h8.6l.9-4.4L14 12l-2-3.5L10 12l-3.2-2.4L7.7 14z"/>
+                        </svg>
+                        <span class="text-2xl font-heading font-bold">The Grandeur</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Experience luxury redefined at The Grandeur, where elegance meets comfort in perfect harmony.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-brand-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-brand-400 transition-colors">About Us</a></li>
+                        <li><a href="#rooms" class="text-gray-300 hover:text-brand-400 transition-colors">Rooms & Suites</a></li>
+                        <li><a href="#amenities" class="text-gray-300 hover:text-brand-400 transition-colors">Amenities</a></li>
+                        <li><a href="#dining" class="text-gray-300 hover:text-brand-400 transition-colors">Dining</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Luxury Boulevard</li>
+                        <li>Metropolitan City, MC 12345</li>
+                        <li>Phone: +1 (555) 123-4567</li>
+                        <li>Email: reservations@thegrandeur.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Facebook</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Instagram</a>
+                        <a href="#" class="text-gray-300 hover:text-brand-400 transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 The Grandeur Hotel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+
+        const roomSliderOptions = {
+            loop: true,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        };
+
+        const roomSlider1 = new Swiper('.room-slider-1', roomSliderOptions);
+        const roomSlider2 = new Swiper('.room-slider-2', roomSliderOptions);
+        const roomSlider3 = new Swiper('.room-slider-3', roomSliderOptions);
+    </script>
+</body>
+</html>

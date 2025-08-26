@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Journal - The Grandeur</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Your Tailwind Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Merriweather', 'serif'],
+                        body: ['Lora', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: 'hsl(14, 40%, 98%)', 100: 'hsl(14, 40%, 95%)', 200: 'hsl(14, 40%, 90%)', 300: 'hsl(14, 42%, 80%)',
+                            400: 'hsl(14, 43%, 70%)', 500: '#c77a63', 600: 'hsl(14, 43%, 50%)', 700: 'hsl(14, 45%, 40%)',
+                            800: 'hsl(14, 42%, 30%)', 900: 'hsl(14, 40%, 20%)',
+                        },
+                        background: 'hsl(14, 40%, 98%)', foreground: '#111111', primary: 'hsl(14, 45%, 40%)',
+                        'primary-foreground': 'hsl(14, 40%, 98%)', secondary: 'hsl(14, 40%, 95%)', 'muted-foreground': '#333333',
+                        border: 'hsl(14, 42%, 80%)', input: 'hsl(14, 42%, 80%)', ring: 'hsl(14, 43%, 59%)',
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body { font-family: 'Lora', serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Merriweather', serif; }
+        .btn-primary { background-color: #c77a63; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #111111; }
+    </style>
+</head>
+<body class="bg-background">
+
+    <nav class="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50 border-b border-border/40">
+        </nav>
+
+    <section class="relative h-80 bg-brand-800 flex items-center justify-center pt-20">
+        <img src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80" alt="Blogger's Desk" class="absolute inset-0 w-full h-full object-cover opacity-30">
+        <div class="relative z-10 text-center text-white" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-heading font-bold">Our Journal</h1>
+            <p class="text-xl mt-4 text-brand-100">Inspiration for Travel, Culture, and Unforgettable Experiences.</p>
+        </div>
+    </section>
+
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+                <div class="lg:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col" data-aos="fade-up">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Culinary" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold self-start">Food & Dining</span>
+                                <h3 class="mt-4 mb-3 text-2xl font-heading font-bold"><a href="#" class="hover:text-brand-600">A Food Lover's Guide to the City</a></h3>
+                                <p class="text-muted-foreground mb-6 text-sm flex-grow">Discover hidden gems and Michelin-starred restaurants that make our city a paradise for food lovers.</p>
+                                <a href="#" class="font-semibold text-brand-600 hover:text-brand-700 self-start">Read More &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80" alt="Travel" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold self-start">Travel Guide</span>
+                                <h3 class="mt-4 mb-3 text-2xl font-heading font-bold"><a href="#" class="hover:text-brand-600">5 Hidden Gems Near The Grandeur</a></h3>
+                                <p class="text-muted-foreground mb-6 text-sm flex-grow">Step off the beaten path and explore unique attractions that are just a short drive from our hotel.</p>
+                                <a href="#" class="font-semibold text-brand-600 hover:text-brand-700 self-start">Read More &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col" data-aos="fade-up">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1544161515-cfd836b08084?auto=format&fit=crop&w=800&q=80" alt="Wellness" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold self-start">Wellness</span>
+                                <h3 class="mt-4 mb-3 text-2xl font-heading font-bold"><a href="#" class="hover:text-brand-600">How to Relax During Your Stay</a></h3>
+                                <p class="text-muted-foreground mb-6 text-sm flex-grow">From our serene spa to in-room meditation guides, find out how to truly unwind and recharge with us.</p>
+                                <a href="#" class="font-semibold text-brand-600 hover:text-brand-700 self-start">Read More &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=800&q=80" alt="Hotel" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-semibold self-start">Hotel News</span>
+                                <h3 class="mt-4 mb-3 text-2xl font-heading font-bold"><a href="#" class="hover:text-brand-600">Our Newly Renovated Rooftop Lounge</a></h3>
+                                <p class="text-muted-foreground mb-6 text-sm flex-grow">We are thrilled to announce the grand reopening of our rooftop lounge, now with more seating and stunning views.</p>
+                                <a href="#" class="font-semibold text-brand-600 hover:text-brand-700 self-start">Read More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 flex justify-center items-center space-x-2" data-aos="fade-up">
+                        <a href="#" class="px-4 py-2 rounded-md text-muted-foreground hover:text-brand-600">Previous</a>
+                        <a href="#" class="px-4 py-2 rounded-md bg-brand-500 text-white shadow-md">1</a>
+                        <a href="#" class="px-4 py-2 rounded-md text-muted-foreground hover:bg-white hover:text-brand-600">2</a>
+                        <a href="#" class="px-4 py-2 rounded-md text-muted-foreground hover:bg-white hover:text-brand-600">3</a>
+                        <a href="#" class="px-4 py-2 rounded-md text-muted-foreground hover:text-brand-600">Next</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1 space-y-8" data-aos="fade-left">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="font-heading font-bold text-xl mb-4">Search</h4>
+                        <div class="relative">
+                            <input type="text" placeholder="Search articles..." class="w-full border border-input rounded-md px-4 py-2">
+                            <svg class="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="font-heading font-bold text-xl mb-4">Categories</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Food & Dining</span> <span>(4)</span></a></li>
+                            <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Travel Guide</span> <span>(8)</span></a></li>
+                            <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Wellness</span> <span>(3)</span></a></li>
+                            <li><a href="#" class="flex justify-between items-center text-muted-foreground hover:text-brand-600"><span>Hotel News</span> <span>(2)</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h4 class="font-heading font-bold text-xl mb-4">Recent Posts</h4>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center group">
+                                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=200&q=80" alt="Food" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                                <div class="ml-4">
+                                    <h5 class="font-heading font-bold text-sm group-hover:text-brand-600">A Food Lover's Guide to the City</h5>
+                                    <p class="text-xs text-gray-400">August 26, 2025</p>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center group">
+                                <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=200&q=80" alt="Travel" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                                <div class="ml-4">
+                                    <h5 class="font-heading font-bold text-sm group-hover:text-brand-600">5 Hidden Gems Near The Grandeur</h5>
+                                    <p class="text-xs text-gray-400">August 22, 2025</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-900 text-white py-16">
+        </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+    </script>
+
+</body>
+</html>
